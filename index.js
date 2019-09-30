@@ -94,17 +94,66 @@ function _position (aspectX, aspectY) {
  * @param {Number} aspectY
  */
 function _move (dir, aspect) {
-  var position = this.position(aspect, aspect);
-
-  if (dir === 'x' || dir === 'both') {
-    this.wrapper.style.left = (position.x * -1) + 'px';
-  }
-
-  if (dir === 'y' || dir === 'both') {
-    this.wrapper.style.top = (position.y * -1) + 'px';
-  }
-
-  return this;
+    var position = this.position(aspect, aspect);
+    if (dir === "x" || dir === "both") {
+        // this.wrapper.style.left = position.x * -1 + "px";
+        this.wrapper.style.transform =
+        "translate(" +
+        -((position.x * 100) / this.wrapper.clientWidth) +
+        "%,0) scale(1.0, 1.0)";
+        this.wrapper.style.transition = "transform 100ms";
+        
+        this.wrapper.style.webkitTransform =
+        "translate(" +
+        -((position.x * 100) / this.wrapper.clientWidth) +
+        "%,0) scale(1.0, 1.0)";
+        this.wrapper.style.webkitTransition = "-webkit-transform 100ms";
+        
+        this.wrapper.style.mozTransform =
+        "translate(" +
+        -((position.x * 100) / this.wrapper.clientWidth) +
+        "%,0) scale(1.0, 1.0)";
+        this.wrapper.style.mozTransition = "-moz-transform 100ms";
+        
+        this.wrapper.style.msTransform =
+        "translate(" +
+        -((position.x * 100) / this.wrapper.clientWidth) +
+        "%,0) scale(1.0, 1.0)";
+        this.wrapper.style.msTransition = "-ms-transform 100ms";
+        
+        this.wrapper.style.webkitBackfaceVisibility = "hidden";
+    }
+    
+    if (dir === "y" || dir === "both") {
+        // this.wrapper.style.top = position.y * -1 + "px";
+        this.wrapper.style.transform =
+        "translate(0," +
+        -((position.y * 100) / this.wrapper.clientHeight) +
+        "%) scale(1.0, 1.0)";
+        this.wrapper.style.transition = "transform 100ms ";
+        
+        this.wrapper.style.webkitTransform =
+        "translate(0," +
+        -((position.y * 100) / this.wrapper.clientHeight) +
+        "%) scale(1.0, 1.0)";
+        this.wrapper.style.webkitTransition = "-webkit-transform 100ms ";
+        
+        this.wrapper.style.mozTransform =
+        "translate(0," +
+        -((position.y * 100) / this.wrapper.clientHeight) +
+        "%) scale(1.0, 1.0)";
+        this.wrapper.style.mozTransition = "-moz-transform 100ms";
+        
+        this.wrapper.style.msTransform =
+        "translate(0," +
+        -((position.y * 100) / this.wrapper.clientHeight) +
+        "%) scale(1.0, 1.0)";
+        this.wrapper.style.msTransition = "-ms-transform 100ms";
+        
+        this.wrapper.style.webkitBackfaceVisibility = "hidden";
+    }
+    
+    return this;
 }
 
 /**
